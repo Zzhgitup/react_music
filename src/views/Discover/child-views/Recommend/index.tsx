@@ -4,6 +4,6 @@ interface Props {
   childern?: ReactNode;
 }
 const recommend: FC<Props> = () => {
-  return <div>telpmate</div>;
+  return <div>Recommed</div>;
 };
 export default memo(recommend);
