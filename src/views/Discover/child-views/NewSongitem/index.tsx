@@ -4,6 +4,6 @@ interface Props {
   childern?: ReactNode;
 }
 const NewSongitem: FC<Props> = () => {
-  return <div>telpmate</div>;
+  return <div>NewSongitem</div>;
 };
 export default memo(NewSongitem);

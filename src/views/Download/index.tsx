@@ -5,6 +5,6 @@ interface Props {
 }
 //使用泛型进行
 const Download: FC<Props> = () => {
-  return <div>telpmate</div>;
+  return <div>Download</div>;
 };
 export default memo(Download);

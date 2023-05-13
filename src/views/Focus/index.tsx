@@ -4,6 +4,6 @@ interface Props {
   childern?: ReactNode;
 }
 const Focus: FC<Props> = () => {
-  return <div>telpmate</div>;
+  return <div>Focus</div>;
 };
 export default Focus;

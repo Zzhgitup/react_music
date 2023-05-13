@@ -24,35 +24,35 @@ const routes: RouteObject[] = [
     children: [
       {
         path: 'discover/',
-        element: <Navigate to="/discover/recommed" />
+        element: <Navigate to="recommed" />
       },
 
       {
-        path: '/discover/recommed',
+        path: 'recommed',
         element: <Recommend />
       },
       {
-        path: '/discover/ranking',
+        path: 'ranking',
         element: <Ranking />
       },
       {
-        path: '/discover/sing',
+        path: 'sing',
         element: <Sing />
       },
       {
-        path: '/discover/anchorradiostation',
+        path: 'anchorradiostation',
         element: <AnchorRadioStation />
       },
       {
-        path: '/discover/recommend',
+        path: 'recommend',
         element: <Recommend />
       },
       {
-        path: '/discover/newsongitem',
+        path: 'newsongitem',
         element: <NewSongitem />
       },
       {
-        path: '/discover/artist',
+        path: 'artist',
         element: <Artist />
       }
     ]

@@ -14,19 +14,13 @@ const AnchorRadioStation = React.lazy(() =>
 //歌手
 const Artist = React.lazy(() => import('@/views/Discover/child-views/Artist'));
 //排行耪
-const Ranking = React.lazy(() =>
-  import('@/views/Discover/child-views/Ranking')
-);
+const Ranking = React.lazy(() => import('@/views/Discover/child-views/Ranking'));
 //推荐
-const Recommend = React.lazy(() =>
-  import('@/views/Discover/child-views/Recommend')
-);
+const Recommend = React.lazy(() => import('@/views/Discover/child-views/Recommend'));
 //歌单
 const Sing = React.lazy(() => import('@/views/Discover/child-views/Sing'));
 //新歌
-const NewSongitem = React.lazy(() =>
-  import('@/views/Discover/child-views/NewSongitem')
-);
+const NewSongitem = React.lazy(() => import('@/views/Discover/child-views/NewSongitem'));
 export {
   Discover,
   Download,

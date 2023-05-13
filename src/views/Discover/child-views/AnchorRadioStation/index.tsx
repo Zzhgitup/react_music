@@ -4,6 +4,6 @@ interface Props {
   childern?: ReactNode;
 }
 const AnchorRadioStation: FC<Props> = () => {
-  return <div>telpmate</div>;
+  return <div>AnchorRadioStation</div>;
 };
 export default memo(AnchorRadioStation);

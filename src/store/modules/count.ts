@@ -1,5 +1,5 @@
 // 引入依赖的库
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // 创建 counterSlice
 export const counterSlice = createSlice({
   name: 'counter', // slice 名称
@@ -10,7 +10,7 @@ export const counterSlice = createSlice({
   },
   reducers: {
     //修改方法
-    changename(state, { payload }) {
+    changename(state, { payload }: PayloadAction<string>) {
       state.name = payload;
     }
   } // 定义 reducer 函数

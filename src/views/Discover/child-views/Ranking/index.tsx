@@ -4,6 +4,6 @@ interface Props {
   childern?: ReactNode;
 }
 const Ranking: FC<Props> = () => {
-  return <div>telpmate</div>;
+  return <div>Ranking</div>;
 };
 export default memo(Ranking);

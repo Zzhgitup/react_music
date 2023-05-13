@@ -4,6 +4,6 @@ interface Props {
   childern?: ReactNode;
 }
 const home: FC<Props> = () => {
-  return <div>telpmate</div>;
+  return <div>home</div>;
 };
 export default memo(home);
