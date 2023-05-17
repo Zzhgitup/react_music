@@ -1,4 +1,7 @@
 import styled from 'styled-components';
-export const FootderWrapper = styled.button`
-  color: grey;
+/* 外部插入样式 */
+export const FootderWrapper = styled.div`
+  .footer {
+    ${(props) => props.theme.mixin.wrapv1}
+  }
 `;
