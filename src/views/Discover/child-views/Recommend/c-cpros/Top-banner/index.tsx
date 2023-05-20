@@ -14,7 +14,6 @@ const Topbanner: FC<Props> = () => {
   //更改页数
   const onChange = (currentSlide: number) => {
     setCurrentIndex(currentSlide);
-    console.log(currentSlide);
   };
   //当前页
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,6 +33,7 @@ const Topbanner: FC<Props> = () => {
             ref={bannerRef}
             afterChange={onChange}
             autoplay
+            dots={false}
             autoplaySpeed={2000}
           >
             {banner.map((item: any) => {
@@ -46,20 +46,26 @@ const Topbanner: FC<Props> = () => {
                 </div>
               );
             })}
-            <ul className="dots">
-              {banner.map((item, index) => {
-                return (
-                  <li key={item.imageUrl}>
-                    <span
-                      className={classNames('item', {
-                        active: currentIndex === index
-                      })}
-                    ></span>
-                  </li>
-                );
-              })}
-            </ul>
           </Carousel>
+          <ul className="dots">
+            {banner.map((item, index) => {
+              return (
+                <li key={item.imageUrl}>
+                  <span
+                    onClick={() => {
+                      onChange(index);
+                      if (bannerRef.current) {
+                        bannerRef.current.goTo(index, true);
+                      }
+                    }}
+                    className={classNames('item', {
+                      active: currentIndex === index
+                    })}
+                  ></span>
+                </li>
+              );
+            })}
+          </ul>
         </Bannerleft>
         <BannerRight></BannerRight>
         <BannerControl>

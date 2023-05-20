@@ -50,3 +50,13 @@ export const recommend = [
     title: '新歌'
   }
 ];
+//推荐数据
+export const area_headerdata = {
+  title: '热门推荐',
+  keywords: ['华语', '流行', '摇滚', '民谣', '电子'],
+  morePath: '/discover/sing'
+};
+export const area_headerdata2 = {
+  title: '个性化推荐',
+  morePath: '/discover/newsongitem'
+};
