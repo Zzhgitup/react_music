@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getbanner, gethot, getnewalbum } from '../serves/recommend';
+import { getbanner, gethot, getnewalbum, getsoaring } from '../serves/recommend';
 export const fetchBannerDatw = createAsyncThunk('recommend/Banner', async (args, { dispatch }) => {
   const res = await getbanner();
   dispatch(changeRecommend(res.banners));
@@ -19,6 +19,19 @@ export const fetchAlbums = createAsyncThunk('albums/albums', async (args, { disp
   console.log(res);
   dispatch(changeAlbums(res.albums));
 });
+//获取飙升榜单 and and and
+const idarr = [19723756, 3779629, 2884035];
+export const fetchHotsong = createAsyncThunk('soaring/sing', async (args, { dispatch }) => {
+  const promises: Promise<any>[] = [];
+  for (let i = 0; i < 3; i++) {
+    promises.push(getsoaring(idarr[i]));
+  }
+  Promise.all(promises).then((res) => {
+    //讲三个数据同时放进去  提取数据
+    const newres = res.map((item) => item.playlist);
+    dispatch(changesoaring(newres));
+  });
+});
 interface HotRoot {
   id: number;
   type: number;
@@ -37,12 +50,20 @@ interface IRecommendState {
   banner: any[];
   hotrecommend: HotRoot[];
   albums: any[];
+  Ranking: any[];
+  /*   hotsong: any;
+  Gentleman: any;
+  original: any; */
 }
 //写出store储存的内容
 const initialState: IRecommendState = {
   banner: [],
   hotrecommend: [],
-  albums: []
+  albums: [],
+  Ranking: [] //榜单数据集合
+  /*   hotsong: [], //飙升榜
+  Gentleman: [], //新歌榜
+  original: [] //原创榜 */
 };
 //生成actions
 const Recommend = createSlice({
@@ -57,6 +78,9 @@ const Recommend = createSlice({
     },
     changeAlbums(state, { payload }) {
       state.albums = payload;
+    },
+    changesoaring(state, { payload }) {
+      state.Ranking = payload;
     }
   }
 
@@ -76,5 +100,5 @@ const Recommend = createSlice({
   } */
 });
 //暴露出reducer
-export const { changeHot, changeRecommend, changeAlbums } = Recommend.actions;
+export const { changeHot, changeRecommend, changeAlbums, changesoaring } = Recommend.actions;
 export default Recommend.reducer;

@@ -21,3 +21,9 @@ export function getnewalbum(offset = 0, limit = 10) {
     }
   });
 }
+//获取飙升榜单
+export function getsoaring(id: number) {
+  return Hyrequire.get({
+    url: `/playlist/detail?id=${id}`
+  });
+}

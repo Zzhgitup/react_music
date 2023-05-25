@@ -57,6 +57,10 @@ export const area_headerdata = {
   morePath: '/discover/sing'
 };
 export const area_headerdata2 = {
-  title: '个性化推荐',
+  title: '新碟上架',
   morePath: '/discover/newsongitem'
+};
+export const area_headerdata3 = {
+  title: '榜单',
+  morePath: '/discover/ranking'
 };
