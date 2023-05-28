@@ -3,7 +3,13 @@ import { FC, ReactNode, useEffect } from 'react';
 //轮播图组件
 import TopBanner from './c-cpros/Top-banner';
 import { ReacommendSection } from './style';
-import { fetchBannerDatw, hotrecommend, fetchAlbums, fetchHotsong } from './store/recomment';
+import {
+  fetchBannerDatw,
+  hotrecommend,
+  fetchAlbums,
+  fetchHotsong,
+  fetchsettleSingers
+} from './store/recomment';
 import { usedispatch } from '@/store';
 import Top_remmend from './c-cpros/Top_remmend';
 import New_albind from './c-cpros/New_albind';
@@ -20,6 +26,7 @@ const recommend: FC<Props> = () => {
     dispatch(hotrecommend(8));
     dispatch(fetchAlbums());
     dispatch(fetchHotsong());
+    dispatch(fetchsettleSingers());
   }, []);
   return (
     <div>

@@ -27,3 +27,13 @@ export function getsoaring(id: number) {
     url: `/playlist/detail?id=${id}`
   });
 }
+//入住歌手
+export function getArtistList(cat: number, limit: number) {
+  return Hyrequire.get({
+    url: '/artist/list',
+    params: {
+      cat,
+      limit
+    }
+  });
+}

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getbanner, gethot, getnewalbum, getsoaring } from '../serves/recommend';
+import { getbanner, gethot, getnewalbum, getsoaring, getArtistList } from '../serves/recommend';
 export const fetchBannerDatw = createAsyncThunk('recommend/Banner', async (args, { dispatch }) => {
   const res = await getbanner();
   dispatch(changeRecommend(res.banners));
@@ -32,6 +32,13 @@ export const fetchHotsong = createAsyncThunk('soaring/sing', async (args, { disp
     dispatch(changesoaring(newres));
   });
 });
+//入住歌手
+export const fetchsettleSingers = createAsyncThunk('eSingers/sing', async (args, { dispatch }) => {
+  const res = await getArtistList(5001, 5);
+  // dispatch()
+  dispatch(changeSettleSingerAction(res.artists));
+  console.log('歌手', res);
+});
 interface HotRoot {
   id: number;
   type: number;
@@ -50,6 +57,7 @@ interface IRecommendState {
   banner: any[];
   hotrecommend: HotRoot[];
   albums: any[];
+  settleSingers: any[];
   Ranking: any[];
   /*   hotsong: any;
   Gentleman: any;
@@ -60,6 +68,7 @@ const initialState: IRecommendState = {
   banner: [],
   hotrecommend: [],
   albums: [],
+  settleSingers: [],
   Ranking: [] //榜单数据集合
   /*   hotsong: [], //飙升榜
   Gentleman: [], //新歌榜
@@ -81,6 +90,9 @@ const Recommend = createSlice({
     },
     changesoaring(state, { payload }) {
       state.Ranking = payload;
+    },
+    changeSettleSingerAction(state, { payload }) {
+      state.settleSingers = payload;
     }
   }
 
@@ -100,5 +112,6 @@ const Recommend = createSlice({
   } */
 });
 //暴露出reducer
-export const { changeHot, changeRecommend, changeAlbums, changesoaring } = Recommend.actions;
+export const { changeHot, changeRecommend, changeAlbums, changesoaring, changeSettleSingerAction } =
+  Recommend.actions;
 export default Recommend.reducer;
