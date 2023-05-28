@@ -150,6 +150,9 @@ export const Container = styled.div`
           float: left;
           width: 170px;
           height: 32px;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

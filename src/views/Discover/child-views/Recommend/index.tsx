@@ -8,6 +8,8 @@ import { usedispatch } from '@/store';
 import Top_remmend from './c-cpros/Top_remmend';
 import New_albind from './c-cpros/New_albind';
 import Rankitem from './c-cpros/Rankitem';
+import User_login from './c-cpros/user_login';
+import Sing_author from './c-cpros/sing_author';
 interface Props {
   childern?: ReactNode;
 }
@@ -32,7 +34,10 @@ const recommend: FC<Props> = () => {
           {/* 榜单 */}
           <Rankitem />
         </div>
-        <div className="rigth">right</div>
+        <div className="rigth">
+          <User_login />
+          <Sing_author />
+        </div>
       </ReacommendSection>
     </div>
   );
