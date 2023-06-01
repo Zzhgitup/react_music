@@ -5,3 +5,7 @@ export function playcount(count: number): string {
 export function getImageSize(str: string, width: number, height: number = width): string {
   return `${str}?param=${width}x${height}`;
 }
+export function getStorry() {
+  const scrollY = window.scrollY;
+  return scrollY;
+}

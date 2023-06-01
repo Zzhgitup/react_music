@@ -16,6 +16,7 @@ import New_albind from './c-cpros/New_albind';
 import Rankitem from './c-cpros/Rankitem';
 import User_login from './c-cpros/user_login';
 import Sing_author from './c-cpros/sing_author';
+import Hot_person from './c-cpros/Hot_person';
 interface Props {
   childern?: ReactNode;
 }
@@ -44,6 +45,8 @@ const recommend: FC<Props> = () => {
         <div className="rigth">
           <User_login />
           <Sing_author />
+          {/* 热门主播 */}
+          <Hot_person />
         </div>
       </ReacommendSection>
     </div>
