@@ -16,7 +16,7 @@ import {
 const routes: RouteObject[] = [
   {
     path: '/' /* 重定向 */,
-    element: <Navigate to="/discover" />
+    element: <Navigate to="/discover/recommed" />
   },
   {
     path: '/discover',

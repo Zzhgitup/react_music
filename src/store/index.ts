@@ -1,13 +1,15 @@
 // 引入依赖的库
 import { configureStore } from '@reduxjs/toolkit'; // 用于创建 Redux store 的工具函数
-import counterSlice from './modules/count'; // 引入自定义的 Redux slice
 import { useSelector, TypedUseSelectorHook, useDispatch, shallowEqual } from 'react-redux'; // 引入 React Redux 中的 useSelector 和 TypedUseSelectorHook
+import counterSlice from './modules/count'; // 引入自定义的 Redux slice
+import playerSlice from '@/views/playArea/Playbar/store/index';
 import recommendSlice from '@/views/Discover/child-views/Recommend/store/recomment';
 // 创建 Redux store
 export const store = configureStore({
   reducer: {
     counter: counterSlice, // 将自定义的 Redux slice 作为 counter reducer 添加到 store 中
-    recommed: recommendSlice //讲remommend的reduese导入进来 进行注册
+    recommed: recommendSlice, //讲remommend的reduese导入进来 进行注册
+    playeer: playerSlice //音乐播放stroe
   }
 });
 // 推导出 RootState 类型，即 Redux store 中的 state 类型
