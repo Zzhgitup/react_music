@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Root } from './type';
+/* import { getSongURL } from '../server/inedx'; */
+/* export const getsong = createAsyncThunk('get/song', async (arges, { dispatch }) => {
+  const res = await getSongURL('');
+}); */
 interface Iplay {
   current_sing: Root;
 }

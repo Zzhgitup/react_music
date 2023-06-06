@@ -40,15 +40,17 @@ const Playbar: FC<Props> = () => {
     console.log(num); //进度百分比
     const current = ((num / 100) * Duration) / 1000;
     setCurrentime(current); //更改时间当前播放时间
-    audio.current!.currentTime = current;
+    audio.current && (audio.current.currentTime = current);
     setprocess(num); //更改进度条位置
-    setischange(false);
+    setischange(false); //松开改变滑动状态
   }
   //拖动事件
   function handleChanging(num: number) {
     setischange(true);
     setprocess(num);
+    setCurrentime(((num / 100) * Duration) / 1000); //设置时间
   }
+  //更新事件
   function TimerUpdate() {
     if (!ischange) {
       const currenttime: number = audio.current?.currentTime as number;
@@ -77,7 +79,7 @@ const Playbar: FC<Props> = () => {
     };
     playAudio();
     setDuration(curr_song.dt);
-  }, [curr_song]);
+  }, [curr_song]); //组件挂在后执行一次，curr_song 更新执行
   return (
     <Playbarwarrap className="sprite_playbar ">
       <div className="content wrap-v2">
