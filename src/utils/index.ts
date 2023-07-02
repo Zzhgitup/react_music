@@ -33,6 +33,7 @@ export function ScendtoF(num: any) {
   const formattedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
   return `${formattedMinutes}:${formattedSeconds}`;
 }
+//解析URL
 export function getSong_URL(id: any) {
   getSongURL(id).then((res) => {
     console.log(res.data[0].url);

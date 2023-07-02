@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -11,13 +11,18 @@ import '@/assets/css/index.less';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement //类型断言
 );
-root.render(
-  //严格模式
-  <BrowserRouter>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </Provider>
-  </BrowserRouter>
-);
+interface Props {
+  childern?: ReactNode;
+}
+const AppWithUI: FC<Props> = () => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </Provider>
+    </BrowserRouter>
+  );
+};
+root.render(<AppWithUI />);

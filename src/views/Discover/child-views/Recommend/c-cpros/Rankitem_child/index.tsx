@@ -1,13 +1,18 @@
 import React, { memo } from 'react';
 import { FC, ReactNode } from 'react';
 import { Container } from './style';
+import { usedispatch } from '@/store';
+import { getsong } from '@/views/playArea/Playbar/store';
 interface Props {
   childern?: ReactNode;
   sing_Date: any;
 }
 const Rankitem_child: FC<Props> = (props) => {
   const { sing_Date } = props;
-  console.log(sing_Date);
+  const dispatch = usedispatch();
+  function handlerplay(id: number) {
+    dispatch(getsong(id));
+  }
   return (
     <Container>
       <div className="header">
@@ -35,9 +40,13 @@ const Rankitem_child: FC<Props> = (props) => {
                   {item.name}
                 </a>
                 <div className="oper">
-                  <a href="" className="sprite_02 playbt"></a>
-                  <a href="" className="sprite_icon2 iconadd"></a>
-                  <a href="" className="sprite_02 fileadd"></a>
+                  <a
+                    href="javascript:;"
+                    className="sprite_02 playbt"
+                    onClick={() => handlerplay(item.id)}
+                  ></a>
+                  <a href="javascript:;" className="sprite_icon2 iconadd"></a>
+                  <a href="javascript:;" className="sprite_02 fileadd"></a>
                 </div>
               </li>
             );

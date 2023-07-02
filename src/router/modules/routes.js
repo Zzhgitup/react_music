@@ -18,7 +18,7 @@ const Ranking = React.lazy(() => import('@/views/Discover/child-views/Ranking'))
 //推荐
 const Recommend = React.lazy(() => import('@/views/Discover/child-views/Recommend'));
 //歌单
-const Sing = React.lazy(() => import('@/views/Discover/child-views/Sing'));
+const Sing = React.lazy(() => import('@/views/Discover/child-views/Sing/index'));
 //新歌
 const NewSongitem = React.lazy(() => import('@/views/Discover/child-views/NewSongitem'));
 export {

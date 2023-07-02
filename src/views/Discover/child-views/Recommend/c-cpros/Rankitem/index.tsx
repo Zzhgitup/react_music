@@ -9,8 +9,8 @@ interface Props {
   childern?: ReactNode;
 }
 const RankItem: FC<Props> = () => {
-  const { Rankitem2 } = useAppselect((state) => ({
-    Rankitem2: state.recommed.Ranking
+  const { Rankitem2 = [] } = useAppselect((state) => ({
+    Rankitem2: state?.recommed?.Ranking
   }));
   return (
     <Container>

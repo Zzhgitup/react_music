@@ -5,3 +5,13 @@ export const getSongURL = (id: any) => {
     data: {}
   });
 };
+export const getSong_detile = (id: number) => {
+  return Hyrequire2.get({
+    url: `/song/detail?ids=${id}`
+  });
+};
+export const getSong_text = (id: number) => {
+  return Hyrequire2.get({
+    url: `/lyric?id=${id}`
+  });
+};

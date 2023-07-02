@@ -94,14 +94,17 @@ export const BarPlayInfo = styled.div`
     }
   }
 `;
-
-export const BarOperator = styled.div`
+interface IBarOperator {
+  mode: number;
+}
+export const BarOperator = styled.div<IBarOperator>`
   display: flex;
   align-items: center;
   position: relative;
   top: 3px;
 
   .btn {
+    cursor: pointer;
     width: 25px;
     height: 25px;
   }
@@ -131,7 +134,16 @@ export const BarOperator = styled.div`
     }
 
     .loop {
-      background-position: -66px -248px;
+      background-position: ${(props) => {
+        switch (props.mode) {
+          case 0:
+            return '-66px -248px';
+          case 1:
+            return '-66px -344px';
+          case 2:
+            return '-3px -344px';
+        }
+      }};
     }
 
     .playlist {
@@ -148,6 +160,7 @@ export const BarControl = styled.div<IBarcontrolProps>`
   align-items: center;
   .prev,
   .next {
+    cursor: pointer;
     width: 28px;
     height: 28px;
   }
