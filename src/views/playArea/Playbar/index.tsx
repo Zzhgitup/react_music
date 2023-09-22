@@ -94,7 +94,12 @@ const Playbar: FC<Props> = () => {
   }
   //播放完毕
   function handerEnd() {
-    dispatch(changeCurrentSong(true));
+    if (mode == 1 && audio.current != null) {
+      audio.current.currentTime = 0;
+      audio.current.play();
+    } else {
+      dispatch(changeCurrentSong(true));
+    }
   }
   //切换歌曲
   function handernext(isNext: boolean) {

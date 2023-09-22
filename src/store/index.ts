@@ -4,12 +4,14 @@ import { useSelector, TypedUseSelectorHook, useDispatch, shallowEqual } from 're
 import counterSlice from './modules/count'; // 引入自定义的 Redux slice
 import playerSlice from '@/views/playArea/Playbar/store/index';
 import recommendSlice from '@/views/Discover/child-views/Recommend/store/recomment';
+import Login from '@/views/Login/store/index';
 // 创建 Redux store
 export const store = configureStore({
   reducer: {
     counter: counterSlice, // 将自定义的 Redux slice 作为 counter reducer 添加到 store 中
     recommed: recommendSlice, //讲remommend的reduese导入进来 进行注册
-    playeer: playerSlice //音乐播放stroe
+    playeer: playerSlice, //音乐播放stroe
+    login: Login //登录信息
   }
 });
 // 推导出 RootState 类型，即 Redux store 中的 state 类型

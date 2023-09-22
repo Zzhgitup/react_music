@@ -18,11 +18,13 @@ const Ranking = React.lazy(() => import('@/views/Discover/child-views/Ranking'))
 //推荐
 const Recommend = React.lazy(() => import('@/views/Discover/child-views/Recommend'));
 //歌单
-const Sing = React.lazy(() => import('@/views/Discover/child-views/Sing/index'));
+const Anmina = React.lazy(() => import('@/views/Discover/child-views/Sing/index'));
 //新歌
 const NewSongitem = React.lazy(() => import('@/views/Discover/child-views/NewSongitem'));
+const Login = React.lazy(() => import('@/views/Login/index'));
 export {
   Discover,
+  Login,
   Download,
   Focus,
   Mymusic,
@@ -30,6 +32,6 @@ export {
   Artist,
   Ranking,
   Recommend,
-  Sing,
+  Anmina,
   NewSongitem
 };

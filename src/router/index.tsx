@@ -9,10 +9,12 @@ import {
   AnchorRadioStation,
   Artist,
   Ranking,
+  Login,
   Recommend,
-  Sing,
+  Anmina,
   NewSongitem
 } from './modules/routes.js';
+
 const routes: RouteObject[] = [
   {
     path: '/' /* 重定向 */,
@@ -37,7 +39,7 @@ const routes: RouteObject[] = [
       },
       {
         path: 'sing',
-        element: <Sing />
+        element: <Anmina />
       },
       {
         path: 'anchorradiostation',
@@ -68,6 +70,10 @@ const routes: RouteObject[] = [
   {
     path: '/mine',
     element: <Mymusic />
+  },
+  {
+    path: '/login',
+    element: <Login />
   }
 ];
 export default routes;

@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
-import { FC, ReactNode } from 'react';
-import { NavLink } from 'react-router-dom';
+import { FC, ReactNode, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { Input } from 'antd';
+import { motion } from 'framer-motion';
 import { SearchOutlined } from '@ant-design/icons';
 import { headertitle } from '@/assets/data/local-data';
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style';
@@ -27,7 +28,16 @@ const Appheader: FC<Props> = () => {
   }
   return (
     <HeaderWrapper>
-      <div className="content">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01]
+        }}
+        className="content"
+      >
         <HeaderLeft>
           <a className="logo sprite_01" href="#/">
             网易云音乐
@@ -45,9 +55,11 @@ const Appheader: FC<Props> = () => {
         <HeaderRight>
           <Input className="search" prefix={<SearchOutlined />} placeholder="音乐/视频/电台/用户" />
           <div className="center">创作者中心</div>
-          <div className="login">登录</div>
+          <Link to="/login" className="login">
+            登录
+          </Link>
         </HeaderRight>
-      </div>
+      </motion.div>
       <div className="divider"></div>
     </HeaderWrapper>
   );

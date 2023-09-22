@@ -1,32 +1,14 @@
-import { useFollowPointer } from '@/hooks/singHooks';
-import React, { memo, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { FC, ReactNode } from 'react';
 import { Container } from './style';
-
-interface Props {
-  children?: ReactNode;
-}
-
-const Sing: FC<Props> = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { x, y } = useFollowPointer(ref);
-  const springConfig = {
-    damping: 20,
-    stiffness: 200,
-    restDelta: 0.001
-  };
-
+export default function Anmina() {
   return (
     <Container>
       <motion.div
-        ref={ref}
         className="box"
-        animate={{ x, y }}
-        transition={{ type: 'spring', ...springConfig }}
+        initial={{ opacity: 0, height: '0px' }}
+        animate={{ opacity: 1, height: '150px' }}
       />
     </Container>
   );
-};
-
-export default memo(Sing);
+}
